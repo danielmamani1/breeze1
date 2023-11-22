@@ -16,7 +16,25 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+}) -> name('xinicio');
+
+Route::get('/saludo', function () {
+    return "Hola mundo desde laravel...";
 });
+
+Route::get('/inicio', function () {
+    return view('pagInicio');
+}) -> name('xInicio');
+
+Route::get('/galeria/{numero}', function ($numero) {
+    return "imagen numero: " .$numero;
+}) -> where('numero', '[0-9]+');
+
+route::view('/galeria', 'pagGaleria', ['valer'=> 15])-> name('xGaleria');
+
+Route::get('/lista', function () {
+    return view('pagLista');
+}) -> name('xLista');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
