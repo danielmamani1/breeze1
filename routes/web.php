@@ -2,39 +2,25 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+route::get('/',[PagesController::class, 'fnIndex'])-> name('xInicio');
 
-Route::get('/', function () {
-    return view('welcome');
-}) -> name('xinicio');
+
+//Route::get('/', function () {
+    //return view('welcome');
+//});
 
 Route::get('/saludo', function () {
-    return "Hola mundo desde laravel...";
+    return "holas mundo desde laravel...";
 });
 
-Route::get('/inicio', function () {
-    return view('pagInicio');
-}) -> name('xInicio');
-
 Route::get('/galeria/{numero}', function ($numero) {
-    return "imagen numero: " .$numero;
-}) -> where('numero', '[0-9]+');
+    return "imagen numero: " .$numero;}) -> where('numero', '[0-9]*');
 
-route::view('/galeria', 'pagGaleria', ['valer'=> 15])-> name('xGaleria');
-
-Route::get('/lista', function () {
-    return view('pagLista');
-}) -> name('xLista');
+route::view('/galeria', 'pagGaleria', ['valor'=> 15])-> name('xGaleria');
+route::view('/lista', 'pagLista', ['valor'=> 15])-> name('xLista');
+//route::view('/Inicio', 'pagInicio', ['valor'=> 15])-> name('xInicio');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
