@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2023 a las 01:21:39
+-- Tiempo de generación: 29-11-2023 a las 01:26:57
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -40,6 +40,16 @@ CREATE TABLE `estudiantes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `estudiantes`
+--
+
+INSERT INTO `estudiantes` (`id`, `codEst`, `nomEst`, `apeEst`, `fnaEst`, `turMat`, `semMat`, `estMat`, `created_at`, `updated_at`) VALUES
+(1, 'CI2021001', 'Daniel', 'Mamani', '1994-06-27', 2, 6, 0, NULL, NULL),
+(2, 'CI2021002', 'Jose', 'Chino', '1994-06-28', 2, 6, 0, NULL, NULL),
+(3, 'CI2021003', 'Pedro', 'Suarez Vertiz', '1996-06-29', 1, 4, 0, NULL, NULL),
+(4, 'CI2021004', 'Juan Gabriel', 'Quispe Condori', '2000-04-18', 1, 2, 0, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -73,11 +83,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(5, '2014_10_12_000000_create_users_table', 1),
-(6, '2014_10_12_100000_create_password_reset_tokens_table', 1),
-(7, '2019_08_19_000000_create_failed_jobs_table', 1),
-(8, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(9, '2023_11_22_235603_create_estudiantes_table', 1);
+(11, '2014_10_12_000000_create_users_table', 1),
+(12, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(13, '2019_08_19_000000_create_failed_jobs_table', 1),
+(14, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(15, '2023_11_22_235603_create_estudiantes_table', 1);
 
 -- --------------------------------------------------------
 
@@ -179,7 +189,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -191,7 +201,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `personal_access_tokens`

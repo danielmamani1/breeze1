@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Estudiante;
 
 class PagesController extends Controller
 {
-    //
+    
     public function fnIndex(){
         return view('welcome');
     }
@@ -16,9 +17,9 @@ class PagesController extends Controller
         return view('pagLista', compact('xAlumnos'));
     }
     
-    public function fnGaleria($numero=0){
+    public function fnGaleria($numero = 0){
         $valor = $numero;
         $otro = 25;
-        return view('paGaleria', compact('valor','otro'));
+        return view('pagGaleria', compact('valor','otro'));
     }
 }
