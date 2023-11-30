@@ -1,15 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
+use App\Models\Detalle;
 
 class PagesController extends Controller
 {
     
     public function fnIndex(){
         return view('welcome');
+    }
+
+    public function fnEstDetalle($id){
+        $xDetAlumnos = Estudiante::findOrFail($id);      //Datos de BD por id
+        return view('Estudiante.pagDetalle', compact('xDetAlumnos'));
     }
 
     public function fnLista(){
