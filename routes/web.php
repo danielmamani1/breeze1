@@ -5,9 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 
 route::get('/',[PagesController::class, 'fnIndex'])-> name('xInicio');
-route::get('/detalle/{id}',[PagesController::class, 'fnEstDetalle'])-> name('Estudiante.xDetalle');
-Route::get('/galeria/{numero?}', [PagesController::class, 'fnGaleria']) -> where('numero', '[0-9]+') -> name('xGaleria');
+route::post('/', [PagesController::class, 'fnRegistrar'])-> name('Estudiante.xRegistrar');
+
 Route::get('/lista', [PagesController::class, 'fnLista']) -> name('xLista');
+route::get('/detalle/{id}',[PagesController::class, 'fnEstDetalle'])-> name('Estudiante.xDetalle');
+
+Route::get('/galeria/{numero?}', [PagesController::class, 'fnGaleria']) -> where('numero', '[0-9]+') -> name('xGaleria');
+
 
 Route::middleware([
     'auth:sanctum',
