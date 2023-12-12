@@ -46,8 +46,9 @@
         </select>
         <select name="semMat" class="form-control mb-2">
             <option value="">Seleccione...</option>
-            <option value="0">Inactivo</option>
-            <option value="1">Activo</option>
+            @for($i=1; $i < 7; $i++)
+                <option value="{{$i}}">Semestre {{$i}}</option>
+            @endfor
         </select>
         <select name="estMat" class="form-control mb-2">
             <option value="">Seleccione...</option>
@@ -65,22 +66,29 @@
                 <th scope="col">Id</th>
                 <th scope="col">Codigo</th>
                 <th scope="col">Apellidos y Nombres</th>
-                <th scope="col">Fecha de Nacimiento</th>
-                <th scope="col">Turno</th>
+                <th scope="col">Handle</th>              
             </tr>
         </thead>
         <tbody>
             @foreach($xAlumnos as $item)
             <tr>
-                <th scope="row"> {{ $item->id }}</th>
+                <th scope="row">{{ $item->id}}</th>
                 <td>{{ $item->codEst }}</td>
-                <td>
-                    <a href="{{ route('Estudiante.xDetalle', $item->id ) }}">
+                <td> 
+                    <a href="{{ route('Estudiante.xDetalle', $item->id) }}">
                         {{ $item->apeEst }}, {{ $item->nomEst }}
                     </a>
                 </td>
-                <td>{{ $item->fnaEst }} </td>   
-                <td>{{ $item->turMat }} </td>   
+                <td>
+                    <form action="{{ route('Estudiante.xEliminar', $item->id) }}" method="pOST" class="d-inline">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger btn-sm">  X </button>
+                    </form>
+                    <a class="btn btn-warning btn-sm" href="{{ route('Estudiante.xActualizar', $item->id) }}">
+                        A
+                    </a>
+                </td>
             </tr>
             @endforeach
         </body>
