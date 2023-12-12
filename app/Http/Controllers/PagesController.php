@@ -13,6 +13,10 @@ class PagesController extends Controller
         return view('welcome');
     }
 
+    public function fnSeguimiento(){
+        return view('pagSeguimiento');
+    }
+
     public function fnEstActualizar($id){
         $xActAlumnos = Estudiante::findOrFail($id);
         return view('Estudiante.pagActualizar', compact('xActAlumnos'));
